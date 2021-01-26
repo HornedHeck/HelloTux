@@ -1,0 +1,21 @@
+# !/bin/bash
+
+
+
+random_max=65000
+random_v=$(($(date +%N)%random_max))
+random_mul=13
+
+next_int (){ random_v=$(( random_v*random_mul%random_max )); }
+
+while true
+    do
+    printf "\033c"
+    next_int
+    x=$((random_v%($(tput cols)-5)))
+    next_int
+    y=$((random_v%$(tput lines)))
+    tput cup $y $x
+    echo $(date +"%H:%M")
+    sleep 10
+done

@@ -1,0 +1,9 @@
+# !/bin/bash
+
+echo "Top 5 by memory"
+echo
+ps -eo comm:40,user:10,pid,size --sort -size | head -n 6 
+echo
+echo "Top 5 by cpu time"
+echo
+ps -eo comm:40,user:10,pid,times --sort -times | head -n 6

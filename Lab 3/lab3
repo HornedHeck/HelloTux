@@ -1,0 +1,35 @@
+# !/bin/bash
+
+# tablename
+# variables
+# line1(CSV)
+# line2
+# ...
+
+# 1 - filename
+
+declare -a lines
+
+while read line
+    do
+    lines+=("$line")
+    done < $1
+
+table=${lines[0]}
+fields=${lines[1]}
+
+lines=("${lines[@]:2}")
+
+l_i=$((${#lines[*]}-1))
+
+echo "INSERT INTO $table"
+echo "VALUES ($fields)"
+for vi in ${!lines[*]}
+    do
+    if [[ $vi != $l_i ]]
+        then
+        echo "(${lines[$vi]}),"
+        else
+        echo "(${lines[$vi]});"    
+    fi
+    done
