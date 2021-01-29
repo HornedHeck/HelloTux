@@ -1,4 +1,4 @@
-#include "converter.h"
+#include "../morze_converter/converter.h"
 #include <sstream>
 
 int main() {
