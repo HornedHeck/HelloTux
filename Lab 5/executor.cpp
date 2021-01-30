@@ -32,5 +32,6 @@ std::string calc(std::string &raw) {
         case SQUARE_SUM:
             return std::to_string(op.a * op.a + op.b * op.b);
     }
+    return "";
 }
 

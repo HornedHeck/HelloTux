@@ -33,11 +33,13 @@ void *client_runner(void *arg) {
     int read_res;
 
     while ((read_res = read(client, buffer, BUFFER_SIZE)) > 0) {
-        message << buffer;
+        message.write(buffer , read_res);
         if (read_res < BUFFER_SIZE || buffer[BUFFER_SIZE - 1] == '\n') break;
     }
 
     auto res = morze(message).str();
+
+    sleep(3);
 
     write(client, res.c_str(), res.length());
 

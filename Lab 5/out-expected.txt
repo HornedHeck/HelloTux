@@ -1,0 +1,4 @@
+args/f3.txt - 13.000000
+args/f1.txt - 3.000000
+args/f2.txt - 4.000000
+args/f4.txt - 6.000000

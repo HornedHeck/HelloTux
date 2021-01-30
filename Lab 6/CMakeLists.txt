@@ -4,8 +4,10 @@ project(L6)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(L6 main.cpp ../morze_converter/converter.cpp ../morze_converter/converter.h)
+add_executable(Server main.cpp ../morze_converter/converter.cpp ../morze_converter/converter.h)
 
 find_library(PTHREAD_LIBRARY pthread)
 
-target_link_libraries(L6 ${PTHREAD_LIBRARY})
+target_link_libraries(Server ${PTHREAD_LIBRARY})
+
+add_executable(Client client.cpp)

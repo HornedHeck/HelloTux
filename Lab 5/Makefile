@@ -2,17 +2,17 @@ BINARY_DIR = build
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-all: converter.o main.o
-	g++ $(BINARY_DIR)/morze.o $(BINARY_DIR)/converter.o -o ${BINARY_DIR}/morze
+all: clean executor.o main.o
+	g++ -pthread $(BINARY_DIR)/calc.o $(BINARY_DIR)/executor.o -o ${BINARY_DIR}/calc
 .PHONY: all
 
 main.o: build_dir
-	g++ -c -Wall -lstdc++ main.cpp -o $(BINARY_DIR)/morze.o
+	g++ -c -Wall --std=c++20 -lstdc++fs  main.cpp -o $(BINARY_DIR)/calc.o
 .PHONY: main.o
 
-converter.o: build_dir
-	g++ -c -Wall -lstdc++ ../morze_converter/converter.cpp -o $(BINARY_DIR)/converter.o
-.PHONY: converter.o
+executor.o: build_dir
+	g++ -c -Wall -lstdc++ executor.cpp -o $(BINARY_DIR)/executor.o
+.PHONY: executor.o
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ test: clean.test all
 .PHONY: test
 
 clean.test:
-	rm -f out-[0123456789]*.txt
+	rm -f out.txt
 .PHONU : clean.test
 
 # ----------------------------------------------------------------------------------------------------------------------
