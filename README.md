@@ -60,5 +60,10 @@ for vi in ${!lines[*]}
     done
 ```
 
+## [Lab 4]("./Lab%203/")
 
+Makefile is them main "difficulty" in this lab
 
+You can read about make and Makefile [here](https://habr.com/ru/post/211751/)
+
+Also converter is moved to ["morze converter"](".morze_converter/") folder, because it will be used in Lab 6
