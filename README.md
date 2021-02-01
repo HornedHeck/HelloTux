@@ -80,6 +80,12 @@ You can read about pthread [here](https://habr.com/ru/post/326138/). Please, rea
 pthread_create(&pid, nullptr, launch, (void *) &path);
 ```
 
+Pay your attention, that thread function must accept void * and return void * . Sample:
+```c
+void *launch(void *arg);
+```
+
+
 2. Creation of mutexes
 ```c
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
